@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-16T08:33:45.053Z</updated>
+  <updated>2021-10-16T08:44:30.930Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,17 +21,17 @@
     <link href="http://example.com/2021/10/16/typora%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%E7%AC%94%E8%AE%B0/"/>
     <id>http://example.com/2021/10/16/typora%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%E7%AC%94%E8%AE%B0/</id>
     <published>2021-10-16T08:32:27.000Z</published>
-    <updated>2021-10-16T08:33:45.053Z</updated>
+    <updated>2021-10-16T08:44:30.930Z</updated>
     
-    <content type="html"><![CDATA[<p>一,基础的使用语法</p><p>1.段落与分割线<br>使用enter直接切换到下一个段落，而使用shift+enter则切换到下一行。(段与段的长度比行与行的长度长);<br>想要在段与段之间添加分割线可以使用***；</p><hr><p>2.字体<br>加粗:文字前后分别添加”**”;<br>斜体:文字前后分别添加” * “;<br>删除线:文字前后添加”~~”;</p><hr><p>3.标题<br>Markdown语法中的标题都是在文字面前使用”#”，前面有几个”#”就是几级标题(文字与#之间需保留空格);</p><hr><p>4.块<br>代码块:将输入法切换至英文，输入”```”即可输入代码;<br>公式块:使用快捷键ctrl+shift+M即可出现书写公式界面;<br>引用块:将输入法切换为英文，输入符号&gt;再按下空格即可进入引用格式;</p><hr>]]></content>
+    <content type="html"><![CDATA[<p>一,基础的使用语法</p><p>1.段落与分割线<br>使用enter直接切换到下一个段落，而使用shift+enter则切换到下一行(段与段的长度比行与行的长度长);<br>想要在段与段之间添加分割线可以使用***；</p><hr><p>2.字体<br>加粗:文字前后分别添加”**”;<br>斜体:文字前后分别添加” * “;<br>删除线:文字前后添加”~~”;</p><hr><p>3.标题<br>Markdown语法中的标题都是在文字面前使用”#”，前面有几个”#”就是几级标题(文字与#之间需保留空格);</p><hr><p>4.块<br>代码块:将输入法切换至英文，输入”```”即可输入代码;<br>公式块:使用快捷键ctrl+shift+M即可出现书写公式界面;<br>引用块:将输入法切换为英文，输入符号&gt;再按下空格即可进入引用格式;</p><hr>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;一,基础的使用语法&lt;/p&gt;
-&lt;p&gt;1.段落与分割线&lt;br&gt;使用enter直接切换到下一个段落，而使用shift+enter则切换到下一行。(段与段的长度比行与行的长度长);&lt;br&gt;想要在段与段之间添加分割线可以使用***；&lt;/p&gt;
+&lt;p&gt;1.段落与分割线&lt;br&gt;使用enter直接切换到下一个段落，而使用shift+enter则切换到下一行(段与段的长度比行与行的长度长);&lt;br&gt;想要在段与段之间添加分割线可以使用***；&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;2.字体&lt;br&gt;加粗:文字</summary>
+&lt;p&gt;2.字体&lt;br&gt;加粗:文字前</summary>
       
     
     
