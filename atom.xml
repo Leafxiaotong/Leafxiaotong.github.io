@@ -47,17 +47,14 @@
     <link href="http://example.com/2021/10/16/typora%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%E7%AC%94%E8%AE%B0/"/>
     <id>http://example.com/2021/10/16/typora%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%E7%AC%94%E8%AE%B0/</id>
     <published>2021-10-16T08:32:27.000Z</published>
-    <updated>2021-10-16T08:44:30.930Z</updated>
+    <updated>2021-10-17T02:55:32.867Z</updated>
     
-    <content type="html"><![CDATA[<p>一,基础的使用语法</p><p>1.段落与分割线<br>使用enter直接切换到下一个段落，而使用shift+enter则切换到下一行(段与段的长度比行与行的长度长);<br>想要在段与段之间添加分割线可以使用***；</p><hr><p>2.字体<br>加粗:文字前后分别添加”**”;<br>斜体:文字前后分别添加” * “;<br>删除线:文字前后添加”~~”;</p><hr><p>3.标题<br>Markdown语法中的标题都是在文字面前使用”#”，前面有几个”#”就是几级标题(文字与#之间需保留空格);</p><hr><p>4.块<br>代码块:将输入法切换至英文，输入”```”即可输入代码;<br>公式块:使用快捷键ctrl+shift+M即可出现书写公式界面;<br>引用块:将输入法切换为英文，输入符号&gt;再按下空格即可进入引用格式;</p><hr>]]></content>
+    <content type="html"><![CDATA[<h1 id="基础的使用语法"><a href="#基础的使用语法" class="headerlink" title="基础的使用语法"></a><strong>基础的使用语法</strong></h1><h2 id="段落与分割线"><a href="#段落与分割线" class="headerlink" title="段落与分割线"></a><strong>段落与分割线</strong></h2><p>使用enter直接切换到下一个段落，而使用shift+enter则切换到下一行(段与段的长度比行与行的长度长)<br>想要在段与段之间添加分割线可以使用***</p><hr><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a><strong>字体</strong></h2><p>加粗:文字前后分别添加”**”<br>斜体:文字前后分别添加” * “<br>删除线:文字前后添加”~~”</p><hr><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a><strong>标题</strong></h2><p>Markdown语法中的标题都是在文字面前使用”#”，前面有几个”#”就是几级标题(文字与#之间需保留空格)</p><hr><h2 id="块"><a href="#块" class="headerlink" title="块"></a><strong>块</strong></h2><p>代码块:将输入法切换至英文，输入”```”即可输入代码<br>公式块:使用快捷键ctrl+shift+M即可出现书写公式界面<br>引用块:将输入法切换为英文，输入符号&gt;再按下空格即可进入引用格式</p><hr><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a><strong>表格</strong></h2><p>使用typora工具栏中的段落-表格可以自动生成一个表格，左上角的栏目可以用于表格的调试</p><table><thead><tr><th align="left"><strong>这是一个表格</strong></th></tr></thead><tbody><tr><td align="left"><strong>这是表格内容</strong></td></tr></tbody></table><hr><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h2><p>直接使用 右键 - 复制 将网络图片、剪贴板图片复制到文档中<br>拖动本地图片到文档中<br>Typora 会自动帮你插入符合 Markdown 语法的图片语句，并给它加上标题<br>在 文件 - 偏好设置 - 编辑器 - 图像中可以设置图片保存的位置</p><hr><h2 id="打字机模式与专注模式"><a href="#打字机模式与专注模式" class="headerlink" title="打字机模式与专注模式"></a><strong>打字机模式与专注模式</strong></h2><p>打字机模式:使得你所编辑的那一行永远处于屏幕正中<br>专注模式:使你正在编辑的那一行保留颜色，而其他行的字体呈灰色</p><hr><h2 id="大纲-amp-文字侧边栏"><a href="#大纲-amp-文字侧边栏" class="headerlink" title="大纲&amp;文字侧边栏"></a><strong>大纲&amp;文字侧边栏</strong></h2><p>Typora 会根据你 Markdown 标记的 H1、H2、H3…… 各级标题为你呈现一个大纲。</p><hr><h1 id="进阶的使用方法–添加插件等"><a href="#进阶的使用方法–添加插件等" class="headerlink" title="进阶的使用方法–添加插件等"></a>进阶的使用方法–添加插件等</h1>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;一,基础的使用语法&lt;/p&gt;
-&lt;p&gt;1.段落与分割线&lt;br&gt;使用enter直接切换到下一个段落，而使用shift+enter则切换到下一行(段与段的长度比行与行的长度长);&lt;br&gt;想要在段与段之间添加分割线可以使用***；&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;2.字体&lt;br&gt;加粗:文字前</summary>
+    <summary type="html">&lt;h1 id=&quot;基础的使用语法&quot;&gt;&lt;a href=&quot;#基础的使用语法&quot; class=&quot;headerlink&quot; title=&quot;基础的使用语法&quot;&gt;&lt;/a&gt;&lt;strong&gt;基础的使用语法&lt;/strong&gt;&lt;/h1&gt;&lt;h2 id=&quot;段落与分割线&quot;&gt;&lt;a href=&quot;#段落与分割线&quot; cl</summary>
       
     
     
