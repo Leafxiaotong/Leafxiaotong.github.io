@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar/avatar.jpg">
+  <link rel="icon" href="/img/avatar/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="生活很沉闷，跑起来才有风。">
+  <meta name="author" content="Leafxiaotong">
+  <meta name="keywords" content="">
+  <meta name="description" content="Day1输入是以行为单位进行的，行的结束标志就是按下了回车键。在按下回车之前，程序不会读到任何东西。 变量：保存数据的地方。用一个变量保存了数据，它才能参加到后面的计算中去。变量定义的一般形式：&lt;类型名称&gt;&lt;变量名称&gt;;变量的名字是一种“标识符”，用来识别这个和那个的不同的名字。标识符基本构造原则：只能由字母，数字和下划线组成，数字不可以出现在第一个位置上，C语言的关键字（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="翁恺MOOC程序设计笔记">
+<meta property="og:url" content="http://example.com/2021/11/16/%E7%BF%81%E6%81%BAMOOC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Leafxiaotong">
+<meta property="og:description" content="Day1输入是以行为单位进行的，行的结束标志就是按下了回车键。在按下回车之前，程序不会读到任何东西。 变量：保存数据的地方。用一个变量保存了数据，它才能参加到后面的计算中去。变量定义的一般形式：&lt;类型名称&gt;&lt;变量名称&gt;;变量的名字是一种“标识符”，用来识别这个和那个的不同的名字。标识符基本构造原则：只能由字母，数字和下划线组成，数字不可以出现在第一个位置上，C语言的关键字（">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-16T08:56:45.000Z">
+<meta property="article:modified_time" content="2021-11-16T09:00:43.297Z">
+<meta property="article:author" content="Leafxiaotong">
+<meta property="article:tag" content="C语言">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>翁恺MOOC程序设计笔记 - Leafxiaotong</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Leafxiaotong" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Leafxiaotong&#39;Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg/OrionNebula.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="翁恺MOOC程序设计笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-16 16:56" pubdate>
+        2021年11月16日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">翁恺MOOC程序设计笔记</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Day1"><a href="#Day1" class="headerlink" title="Day1"></a>Day1</h1><p>输入是以行为单位进行的，行的结束标志就是按下了回车键。在按下回车之前，程序不会读到任何东西。</p>
+<p>变量：保存数据的地方。用一个变量保存了数据，它才能参加到后面的计算中去。<br><strong>变量定义的一般形式：&lt;类型名称&gt;&lt;变量名称&gt;;</strong><br>变量的名字是一种“<strong>标识符</strong>”，用来识别这个和那个的不同的名字。<br><strong>标识符基本构造原则</strong>：只能由字母，数字和下划线组成，数字不可以出现在第一个位置上，C语言的关键字（有的地方称为<strong>保留字</strong>）不可以用做标识符。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span>,<span class="hljs-keyword">break</span>,<span class="hljs-keyword">case</span>,<span class="hljs-keyword">char</span>,<span class="hljs-keyword">const</span>,<span class="hljs-keyword">continue</span>,<span class="hljs-keyword">default</span>,<span class="hljs-keyword">do</span>,<span class="hljs-keyword">double</span>,<span class="hljs-keyword">else</span>,<span class="hljs-keyword">enum</span>,<span class="hljs-keyword">extern</span>,<span class="hljs-keyword">float</span>,<span class="hljs-keyword">for</span>,<span class="hljs-keyword">goto</span>,<span class="hljs-keyword">if</span>,<span class="hljs-keyword">int</span>,<span class="hljs-keyword">long</span>,<span class="hljs-keyword">register</span>,<span class="hljs-keyword">return</span>,<span class="hljs-keyword">short</span>,<span class="hljs-keyword">signed</span>,<span class="hljs-keyword">sizeof</span>,<span class="hljs-keyword">static</span>,struct,<span class="hljs-keyword">switch</span>,<span class="hljs-keyword">typedef</span>,<span class="hljs-keyword">union</span>,<span class="hljs-keyword">unsigned</span>,<span class="hljs-keyword">void</span>,<span class="hljs-keyword">volatile</span>,<span class="hljs-keyword">while</span>,<span class="hljs-keyword">inline</span>,<span class="hljs-keyword">restrict</span><br></code></pre></td></tr></table></figure>
+
+<p>(以上不需要背诵)<br>C语言没有强制要求变量在被定义时就初始化，但在第一次被使用之前应该被赋值一次。（如果没有初始化，则会随机出现奇怪的数值）<br><strong>变量初始化：&lt;类型名称&gt;&lt;变量名称&gt;=&lt;初始值&gt;;</strong><br><strong>表达式：有运算符的式子就叫做表达式。</strong><br>C99允许在程序的任何地方定义变量<br>传统ANSI C只能在代码开头的地方定义变量<br>固定不变的数，是常数。直接写在程序里，我们称作**直接量（literal)**。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//定义一个常量</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> AMOUNT = <span class="hljs-number">100</span>;<br></code></pre></td></tr></table></figure>
+
+<p>const是一个修饰符，用来给这个变量加上一个const(不变的)的属性。<br>const属性表示这个变量的值一旦初始化，就不能再修改了。<br>若强行进行赋值操作，编译器会发现这个错误并且指出。</p>
+<p>当浮点数和整数放在一起运算时，C会将整数转换成浮点数，然后进行浮点数的运算。<br>double双精度浮点数；float单精度浮点数</p>
+<p>运算符(operator)是指进行运算的动作：加法运算符“+”，减法运算符“-”<br>算子(operand)指参与运算的值：常数，变量，某个方法的返回值</p>
+<p><strong>运算符优先级</strong></p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+<th>运算</th>
+<th>结合关系</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>+</td>
+<td>单目不变</td>
+<td>自右向左</td>
+<td>a*+b</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-</td>
+<td>单目取负</td>
+<td>自右向左</td>
+<td>a*-b</td>
+</tr>
+<tr>
+<td>2</td>
+<td>*</td>
+<td>乘</td>
+<td>自左向右</td>
+<td>a*b</td>
+</tr>
+<tr>
+<td>2</td>
+<td>/</td>
+<td>除</td>
+<td>自左向右</td>
+<td>a/b</td>
+</tr>
+<tr>
+<td>2</td>
+<td>%</td>
+<td>取余</td>
+<td>自左向右</td>
+<td>a%b</td>
+</tr>
+<tr>
+<td>3</td>
+<td>+</td>
+<td>加</td>
+<td>自左向右</td>
+<td>a+b</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-</td>
+<td>减</td>
+<td>自左向右</td>
+<td>a-b</td>
+</tr>
+<tr>
+<td>4</td>
+<td>=</td>
+<td>赋值</td>
+<td>自右向左</td>
+<td>a=b</td>
+</tr>
+</tbody></table>
+<p>赋值运算符<br><strong>赋值也是运算，也有结果！</strong>a=6的结果是a被赋予的值，也就是6<br>不要用“嵌入式赋值”！！（不利于阅读，容易产生错误）</p>
+<p>结合关系：一般自左向右（单目+-和赋值时自右向左）</p>
+<p>设置断点：程序运行到断点时将会停止，不会执行被设为断点的那一行程序。（用来进行程序debug。）</p>
+<p><strong>复合赋值</strong>：5个算术运算符，+-/%，可以和赋值运算符“=”结合起来，形成复合赋值运算符：“+=”，“-=”，“*=”，“/=”和“%=”（两个运算符中间不要有空格！）<br>例：total += 5;<br>        total = total + 5;</p>
+<p><strong>递增递减运算符（++和–）</strong>：单目运算符，其算子必须是变量，作用是给这个变量+1或者-1。<br>前缀后缀：放在变量的前面叫做前缀形式，放在变量后面叫做后缀形式。<br><strong>a++的值是a加1以前的值，而++a的值是加了1以后的值。</strong></p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>运算</th>
+<th>表达式的值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>count++</td>
+<td>给count加1</td>
+<td>count原来的值</td>
+</tr>
+<tr>
+<td>++count</td>
+<td>给count加1</td>
+<td>count+1以后的值</td>
+</tr>
+<tr>
+<td>count–</td>
+<td>给count减1</td>
+<td>count原来的值</td>
+</tr>
+<tr>
+<td>–count</td>
+<td>给count减1</td>
+<td>count-1以后的值</td>
+</tr>
+</tbody></table>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/16/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E3%80%8A%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%8E%9F%E7%90%86%E3%80%8B/">
+                        <span class="hidden-mobile">读书笔记-《经济学原理》</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
