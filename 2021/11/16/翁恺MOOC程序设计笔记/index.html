@@ -24,7 +24,7 @@
 <meta property="og:description" content="Day1输入是以行为单位进行的，行的结束标志就是按下了回车键。在按下回车之前，程序不会读到任何东西。 变量：保存数据的地方。用一个变量保存了数据，它才能参加到后面的计算中去。变量定义的一般形式：&lt;类型名称&gt;&lt;变量名称&gt;;变量的名字是一种“标识符”，用来识别这个和那个的不同的名字。标识符基本构造原则：只能由字母，数字和下划线组成，数字不可以出现在第一个位置上，C语言的关键字（">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-16T08:56:45.000Z">
-<meta property="article:modified_time" content="2021-11-16T12:57:10.385Z">
+<meta property="article:modified_time" content="2021-11-16T14:14:16.231Z">
 <meta property="article:author" content="Leafxiaotong">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.7k 字
+      2.9k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      9 分钟
     </span>
   
 
@@ -403,6 +403,11 @@
 <p><strong>随机数：每次召唤rand（）就得到一个随机的整数。</strong></p>
 <p>for(初始条件；循环继续的条件；循环每一轮要做的事情)<br>for=对于<br>for(count=10;count&gt;0;count–)<br>读作：“对于一开始的count=10,当count&gt;0时，重复做循环体，每一轮循环在做完循环体内语句后，使得count–。”<br>小套路：做求和的程序时，记录结果的变量应该初始化为0，而做求积的变量时，记录结果的变量应该初始化为1。<br>循环控制变量i只在循环里被使用了，在循环外面它没有任何用处。因此，我们可以把<strong>变量i的定义写到for语句里面去</strong>。（在C99里面用！）</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;n;i++)<br></code></pre></td></tr></table></figure>
+
+<p>for中的每一个表达式都是可以<br><strong>for(;条件;)==while(条件)</strong></p>
+<p><strong>Tips for loops:如果有固定次数，用for；如果必须执行一次，用do-while；其他情况用while</strong></p>
+<p><strong>break：跳出循环</strong><br><strong>continue：跳过循环这一轮剩下的语句进入下一轮</strong><br>break和continue只能对它所在的那层循环做<br><strong>goto语句：无条件转移（不建议使用，只使用在多重循环结构中）</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">goto</span> out;<br>&lt;语句&gt;<br>out:<br></code></pre></td></tr></table></figure>
 
 
             </div>
