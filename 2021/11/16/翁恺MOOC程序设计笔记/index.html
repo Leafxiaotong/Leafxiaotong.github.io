@@ -23,11 +23,13 @@
 <meta property="og:site_name" content="Leafxiaotong">
 <meta property="og:description" content="Day1输入是以行为单位进行的，行的结束标志就是按下了回车键。在按下回车之前，程序不会读到任何东西。 变量：保存数据的地方。用一个变量保存了数据，它才能参加到后面的计算中去。变量定义的一般形式：&lt;类型名称&gt;&lt;变量名称&gt;;变量的名字是一种“标识符”，用来识别这个和那个的不同的名字。标识符基本构造原则：只能由字母，数字和下划线组成，数字不可以出现在第一个位置上，C语言的关键字（">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/.com//Blog/source_posts/翁恺MOOC程序设计笔记/ascii.jpg">
 <meta property="article:published_time" content="2021-11-16T08:56:45.000Z">
-<meta property="article:modified_time" content="2021-11-17T04:50:16.505Z">
+<meta property="article:modified_time" content="2021-11-17T12:36:22.376Z">
 <meta property="article:author" content="Leafxiaotong">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/.com//Blog/source_posts/翁恺MOOC程序设计笔记/ascii.jpg">
   
   <title>翁恺MOOC程序设计笔记 - Leafxiaotong</title>
 
@@ -197,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.3k 字
+      6.4k 字
     </span>
   
 
@@ -206,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      20 分钟
     </span>
   
 
@@ -444,6 +446,192 @@
 <td align="center">8字节</td>
 </tr>
 </tbody></table>
+<p>整数的内部表达：计算机内部一切都是二进制 </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-number">18</span>--&gt;<span class="hljs-number">00010010</span><br><span class="hljs-number">0</span>--&gt;<span class="hljs-number">00000000</span><br><span class="hljs-number">-18</span>--&gt;?<br></code></pre></td></tr></table></figure>
+
+<p>二进制负数<br>1个字节可以表达的数：00000000–11111111（0-255）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-number">1.</span>仿制十进制，有一个特殊的标志表示负数<br><span class="hljs-number">2.</span>取中间的数为<span class="hljs-number">0</span>，如<span class="hljs-number">100000000</span>表示<span class="hljs-number">0</span>，比它小的是负数，比它大的是正数<br><span class="hljs-number">3.</span>补码<br></code></pre></td></tr></table></figure>
+
+<p><strong>补码的意义就是拿补码和原码可以加出一个溢出的“零”</strong></p>
+<p>数的范围：对于一个字节（8位），可以表达的是<br>00000000-11111111<br>00000000-&gt;0,11111111<del>10000000-&gt;-1</del>-128,00000001<del>01111111-&gt;1</del>127<br>11111111被当作纯二进制看待时，是255，被当作补码看待时是-1<br>如果一个字面量常数想要表达自己是unsigned，可以在后面加u或U<br>用l或L表示long(long)<br>*unsigned的初衷并非扩展数能表达的范围，而是为了做纯二进制运算，主要是为了移位</p>
+<p>整数的输入输出<br>只有两种形式：int或long long<br>%d：int<br>%u：unsigned<br>%ld：long long<br>%lu：unsigned long long</p>
+<p>8进制和16进制<br>一个以0开始的数字<strong>字面量</strong>是8进制<br>一个以0x开始的数字<strong>字面量</strong>是16进制<br>%o用于8进制，%x用于16进制<br>8进制和16进制只是如何把数字表达为字符串，与内部如何表达数字无关！</p>
+<p>选择整数类型<br>整数这么多种的原因：为了准确表达内存，做底层程序的需要<br><strong>没有特殊需要，就选择int</strong><br>现在的CPU字长都是32位或者64位，一次内存读写就是一个int，一次计算也是一个int（选择更短的类型不会更快，甚至可能更慢）<br>*现代编译器一般会设计<strong>内存对齐</strong>，所以更短的类型实际在内存中有可能也占据一个int的大小<br>unsigned与否只是输出的不同，内部计算是一样的！ </p>
+<p><strong>浮点类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>scanf</th>
+<th>printf</th>
+<th>字长</th>
+<th>范围</th>
+<th>有效数字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>float</td>
+<td>%f</td>
+<td>%f,%e</td>
+<td>32</td>
+<td>(-2^128 ~ +2^128),0,±inf,nan</td>
+<td>7</td>
+</tr>
+<tr>
+<td>double</td>
+<td>%lf</td>
+<td>%f,%e</td>
+<td>64</td>
+<td>(-2^1024 ~ +2^1024),0,±inf,nan</td>
+<td>15</td>
+</tr>
+</tbody></table>
+<p>%e:输出科学计数法<br>可选的+或-符号，可以用e或E，小数点也可选，符号可以是-或+也可以省略（表示+）<br>-5.67E+16</p>
+<p>输出精度：在%和f之间加上.n可以指定输出小数点后几位，这样的输出是做四舍五入的。<br>超过范围的浮点数<br>printf输出inf表示超过范围的浮点数：±∞<br>printf输出nan表示不存在的浮点数</p>
+<p><strong>带小数点的字面量是double而非float</strong><br>float需要用f或F后缀来表明身份<br>注意：f1==f2可能失败！可以用fabs(f1-f2)&lt;1e-12来判断</p>
+<p>浮点数的内部表达：<br>浮点数在计算时是由专用的硬件部件实现的<br>计算double和float所用的部件是一样的<br>选择浮点类型：<strong>如果没有特殊需求，只使用double!</strong><br>*现代CPU能直接对double做硬件计算，性能不会比float差，在64位的机器上，数据存储的速度也不比float慢</p>
+<p>字符类型（character）<br>char是一种整数，也是一种特殊的类型：字符<br>用单引号表示的字符字面量：’a’,’1’<br>‘ ‘也是一个字符<br>printf和scanf里用%c来输入输出字符</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">char</span> c;<br>    <span class="hljs-keyword">char</span> d;<br>    c = <span class="hljs-number">1</span>;<br>    d = <span class="hljs-string">&#x27;1&#x27;</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;c=%d\n&quot;</span>,c);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;d=%d\n&quot;</span>,d);<br>    <span class="hljs-keyword">return</span>  <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>ASCII表<br><img src="/.com//Blog\source_posts\翁恺MOOC程序设计笔记\ascii.jpg" srcset="/img/loading.gif" lazyload alt="ascii"></p>
+<p><strong>简单讲”%d %c”可以以0个或多个空白字符（空格、tab键、回车等）作为分隔符，同时%c不会读取空白字符，%c读取的一定是一个非空白字符，而 “%d%c”会读取一个数和紧挨着这个数的一个字符（包括空白字符）</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %c&quot;</span>,&amp;i,&amp;c);<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%c&quot;</span>,&amp;i,&amp;c);<br></code></pre></td></tr></table></figure>
+
+<p>大小写转换<br>大写字母和小写字母是分开排列的，并不在一起（小写字母靠后一些）<br>‘a’-’A‘可以得到两端之间的距离，于是<br><strong>a+’a’-‘A’可以把一个大写字母变成小写字母；a+’A’-‘a’可以把一个小写字母变成大写字母</strong></p>
+<p><strong>逃逸字符</strong>：用来表示无法打印出来的控制字符或特殊字符，它由一个反斜杠“\”开头，后面跟上另一个字符，这两个字符合起来，组成了一个字符。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请分别输入身高的英尺和英寸，&quot;</span><br>      <span class="hljs-string">&quot;如输入\&quot;5 7\&quot;表示5英尺7英寸：&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>意义</th>
+<th>字符</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\b</td>
+<td>回退一格</td>
+<td>\“</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>到下一个表格位</td>
+<td>\‘</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+<td>\\</td>
+<td>反斜杠本身</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>自动类型转换：当运算符的两边出现不一致的类型时，会自动转换成较大的类型（大的意思是能表达的数的范围更大）<br>char–&gt;short–&gt;int–&gt;long–&gt;long long<br>int–&gt;float–&gt;double<br>对于printf，任何小于int的类型会被转换成int；float会被转换成double<br>但是scanf不会，要输入short，需要%hd</p>
+<p>强制类型转换：要把一个量强制转换成另一个类型（通常是较小的类型），需要:（类型）值<br>比如：(int)10.2 (short)32<br>注意这时候的安全性，小的变量不总能表达大的量<br>只是从那个变量计算出了一个新的类型的值，它并不改变那个变量，无论是值还是类型都不改变<br><strong>强制类型转换的优先级高于四则运算</strong></p>
+<p>bool类型</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdbool.h&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>之后就可以使用bool和true,false</p>
+<p>逻辑运算：对逻辑量进行的运算，<strong>结果只有0或1</strong><br>逻辑量是关系运算或逻辑运算的结果</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>示例</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!</td>
+<td>逻辑非</td>
+<td>!a</td>
+<td>如果a是true结果就是false,如果a是false结果就是true</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>逻辑与</td>
+<td>a&amp;&amp;b</td>
+<td>如果a和b都是true,结果就是true；否则就是false</td>
+</tr>
+<tr>
+<td>||</td>
+<td>逻辑或</td>
+<td>a||b</td>
+<td>如果a和b有一个是true,结果就是true；两个都是false,结果就是false</td>
+</tr>
+</tbody></table>
+<p><strong>优先级：！&gt; &amp;&amp; &gt; ||</strong></p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+<th>结核性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>()</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>2</td>
+<td>! + - ++ –</td>
+<td>从右到左（单目的+和-）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>* / %</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>4</td>
+<td>+-</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>5</td>
+<td>&lt; &lt;= &gt; &gt;=</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>6</td>
+<td>== !=</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>7</td>
+<td>&amp;&amp;</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>8</td>
+<td>||</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>9</td>
+<td>= += -= *= /= %=</td>
+<td>从右到左</td>
+</tr>
+</tbody></table>
+<p><strong>短路：逻辑运算是自左向右进行的，如果左边的结果已经能够决定结果了，就不会做右边的计算</strong><br>a==6&amp;&amp;b==1<br>a==6&amp;&amp;b+=1<br>对于&amp;&amp;，左边是false时就不做右边了<br>对于||，左边是true时就不做右边了<br><strong>不要把赋值，包括复合赋值组合进表达式！</strong></p>
+<p>条件运算符（三目运算符）<br>count = (count &gt; 20) ? count - 10 : count + 10;<br>条件、条件满足时的值和条件不满足时的值</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span>（count &gt; <span class="hljs-number">20</span> )<br>    count = count - <span class="hljs-number">10</span>;<br><span class="hljs-keyword">else</span><br>    count = count + <span class="hljs-number">10</span>;<br></code></pre></td></tr></table></figure>
+
+<p>条件运算符的优先级高于赋值运算符，但是低于其他运算符<br><strong>不要用嵌套条件表达式！</strong></p>
+<p>逗号运算：逗号用来连接两个表达式，并以其<strong>右边的表达式的值作为它的结果</strong>。逗号的<strong>优先级是所有的运算符中最低的</strong>，所以它两边的表达式会先计算；逗号的组合关系是<strong>自左向右</strong>，所以<strong>左边的表达式会先计算</strong>，而<strong>右边的表达式的值就留下来作为逗号运算的结果</strong>。<br>主要是在for中使用逗号运算</p>
+<p><strong>“代码复制”是程序质量不良的表现！</strong></p>
 
             </div>
             <hr>
