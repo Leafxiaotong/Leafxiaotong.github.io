@@ -24,7 +24,7 @@
 <meta property="og:description" content="Day1输入是以行为单位进行的，行的结束标志就是按下了回车键。在按下回车之前，程序不会读到任何东西。 变量：保存数据的地方。用一个变量保存了数据，它才能参加到后面的计算中去。变量定义的一般形式：&lt;类型名称&gt;&lt;变量名称&gt;;变量的名字是一种“标识符”，用来识别这个和那个的不同的名字。标识符基本构造原则：只能由字母，数字和下划线组成，数字不可以出现在第一个位置上，C语言的关键字（">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-16T08:56:45.000Z">
-<meta property="article:modified_time" content="2021-11-16T14:14:16.231Z">
+<meta property="article:modified_time" content="2021-11-17T04:50:16.505Z">
 <meta property="article:author" content="Leafxiaotong">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.9k 字
+      3.3k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9 分钟
+      10 分钟
     </span>
   
 
@@ -409,6 +409,41 @@
 <p><strong>break：跳出循环</strong><br><strong>continue：跳过循环这一轮剩下的语句进入下一轮</strong><br>break和continue只能对它所在的那层循环做<br><strong>goto语句：无条件转移（不建议使用，只使用在多重循环结构中）</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">goto</span> out;<br>&lt;语句&gt;<br>out:<br></code></pre></td></tr></table></figure>
 
+<h1 id="Day2"><a href="#Day2" class="headerlink" title="Day2"></a>Day2</h1><p>C++/Java更强调类型，对类型的检查更严格<br>JavaScript,Python,PHP不看重类型，甚至不需要事先定义。</p>
+<p>C语言的类型</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c">·整数<br> ·<span class="hljs-keyword">char</span>,<span class="hljs-keyword">short</span>,<span class="hljs-keyword">int</span>,<span class="hljs-keyword">long</span>,<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span><br>·浮点数<br> ·<span class="hljs-keyword">float</span>,<span class="hljs-keyword">double</span>,<span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span><br>·逻辑<br> ·<span class="hljs-keyword">bool</span><br>·指针<br>·自定义类型<br></code></pre></td></tr></table></figure>
+
+<p><strong>表达的数的范围:char&lt;short&lt;int&lt;float&lt;double</strong></p>
+<p>sizeof：是一个运算符，给出某个类型或变量在内存中所占据的字节数<br>sizeof(int);sizeof(i);<br>sizeof（）函数的意思是输出括号内的变量所占的内存空间。<strong>（只看表达式的数据类型！）</strong></p>
+<p>整数</p>
+<table>
+<thead>
+<tr>
+<th align="center">整数</th>
+<th align="center">大小</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">char</td>
+<td align="center">1字节（8比特）</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">2字节</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">取决于CPU，通常的意义是“1个字”</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">取决于CPU，通常的意义是“1个字”</td>
+</tr>
+<tr>
+<td align="center">long long</td>
+<td align="center">8字节</td>
+</tr>
+</tbody></table>
 
             </div>
             <hr>
