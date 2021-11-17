@@ -24,8 +24,9 @@
 <meta property="og:description" content="Day1输入是以行为单位进行的，行的结束标志就是按下了回车键。在按下回车之前，程序不会读到任何东西。 变量：保存数据的地方。用一个变量保存了数据，它才能参加到后面的计算中去。变量定义的一般形式：&lt;类型名称&gt;&lt;变量名称&gt;;变量的名字是一种“标识符”，用来识别这个和那个的不同的名字。标识符基本构造原则：只能由字母，数字和下划线组成，数字不可以出现在第一个位置上，C语言的关键字（">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/.com//Blog/source_posts/翁恺MOOC程序设计笔记/ascii.jpg">
+<meta property="og:image" content="http://example.com/.com//Blog/source/img/ascii.jpg">
 <meta property="article:published_time" content="2021-11-16T08:56:45.000Z">
-<meta property="article:modified_time" content="2021-11-17T12:36:22.376Z">
+<meta property="article:modified_time" content="2021-11-17T13:38:32.660Z">
 <meta property="article:author" content="Leafxiaotong">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
@@ -497,7 +498,7 @@
 <p><strong>简单讲”%d %c”可以以0个或多个空白字符（空格、tab键、回车等）作为分隔符，同时%c不会读取空白字符，%c读取的一定是一个非空白字符，而 “%d%c”会读取一个数和紧挨着这个数的一个字符（包括空白字符）</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %c&quot;</span>,&amp;i,&amp;c);<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%c&quot;</span>,&amp;i,&amp;c);<br></code></pre></td></tr></table></figure>
 
-<p>大小写转换<br>大写字母和小写字母是分开排列的，并不在一起（小写字母靠后一些）<br>‘a’-’A‘可以得到两端之间的距离，于是<br><strong>a+’a’-‘A’可以把一个大写字母变成小写字母；a+’A’-‘a’可以把一个小写字母变成大写字母</strong></p>
+<p>大小写转换<br>大写字母和小写字母是分开排列的，并不在一起（小写字母靠后一些）<br>‘a’-’A‘可以得到两端之间的距离，于是<br><strong>a+’a’-‘A’可以把一个大写字母变成小写字母；a+’A’-‘a’可以把一个小写字母变成大写字母</strong><br><img src="/.com//Blog\source\img\ascii.jpg" srcset="/img/loading.gif" lazyload alt="ascii"></p>
 <p><strong>逃逸字符</strong>：用来表示无法打印出来的控制字符或特殊字符，它由一个反斜杠“\”开头，后面跟上另一个字符，这两个字符合起来，组成了一个字符。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;请分别输入身高的英尺和英寸，&quot;</span><br>      <span class="hljs-string">&quot;如输入\&quot;5 7\&quot;表示5英尺7英寸：&quot;</span>);<br></code></pre></td></tr></table></figure>
 
