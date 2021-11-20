@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/.com//Blog/source_posts/翁恺MOOC程序设计笔记/ascii.jpg">
 <meta property="article:published_time" content="2021-11-16T08:56:45.000Z">
-<meta property="article:modified_time" content="2021-11-19T10:25:27.513Z">
+<meta property="article:modified_time" content="2021-11-20T02:49:50.485Z">
 <meta property="article:author" content="Leafxiaotong">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      8.6k 字
+      10k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      27 分钟
+      31 分钟
     </span>
   
 
@@ -659,6 +659,34 @@
 <p><strong>sizeof给出整个数组所占据的内容的大小，单位是字节</strong>**<br><strong>sizeof(a)/sizeof(a[0])</strong><br>sizeof(a[0])给出数组中单个元素的大小，于是相除就得到了数组的单位个数</p>
 <p>数组变量本身不能被赋值<br>要把一个数组的所有元素交给另一个数组，必须采用<strong>遍历</strong><br>遍历数组：通常都是使用for循环，让循环遍历i从0到&lt;数组的长度，这样循环体内最大的i正好是数组最大的有效下标<br>常见错误：循环结束条件是&lt;=数组长度；离开循环后，继续用i的值来做数组元素的下标</p>
 <p><strong>数组作为函数参数时，往往必须再用另一个参数来传入数组的大小</strong><br>数组作为函数的参数时：不能在[]中给出数组的大小，不能再利用sizeof来计算数组的元素个数</p>
+<h1 id="Day4"><a href="#Day4" class="headerlink" title="Day4"></a>Day4</h1><p>二维数组</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">int</span> a[<span class="hljs-number">3</span>][<span class="hljs-number">5</span>];<br><span class="hljs-comment">//通常理解为a是一个3行5列的矩阵</span><br></code></pre></td></tr></table></figure>
+
+<p>二维数组的遍历（需要多重循环）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">for</span> ( i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">3</span> ;i++)<br>&#123;<br>    <span class="hljs-keyword">for</span> (j=<span class="hljs-number">0</span>;j&lt;<span class="hljs-number">5</span>;j++)<br>    &#123;<br>        a[i][j] = i*j;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>二维数组的初始化</strong><br>列出是必须给出的，行数可以由编译器来数<br>每行一个{}，逗号分割<br>最后的逗号可以存在<br>如果省略，表示补零<br>也可以用定位</p>
+<p><strong>运算符&amp;</strong><br>scanf(“%d”,&amp;i);里的&amp;<br>获得变量的地址，它的操纵数必须是变量<br>地址的大小是否与int相同取决于编译器</p>
+<p>指针：就是保存地址的变量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">int</span> i;<br><span class="hljs-keyword">int</span>* p = &amp;i;<br><span class="hljs-keyword">int</span>* p,q;<br><span class="hljs-keyword">int</span> *p,q;<br><span class="hljs-comment">//三四行等价，表示p是指针，q是一个普通的变量</span><br></code></pre></td></tr></table></figure>
+
+<p>指针变量：变量的值是内存的地址<br>普通变量的值是实际的值<br>指针变量的值是<strong>具有实际值的变量</strong>的地址</p>
+<p>作为参数的指针<br>void f(int *p);<br>在被调用的时候得到了某个变量的地址：<br>int i=0;f(&amp;i);<br>在函数里面可以通过这个指针访问外面的这个i</p>
+<p>访问那个地址上的变量*<br><em>是一个单目运算符，用来访问指针的值所表示的地址上的变量<br>可以做右值也可以做左值<br><em>左值之所以叫左值是因为出现在赋值号左边的不是变量，而是值，是**表达式计算的结果</em></em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">a[<span class="hljs-number">0</span>] = <span class="hljs-number">2</span>;<br>*p = <span class="hljs-number">3</span>;<br><span class="hljs-comment">//本质上两者(取0下标和取p的地址)都是运算的结果</span><br></code></pre></td></tr></table></figure>
+
+<p>指针的运算符&amp;*</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">*&amp;yptr -&gt; *(&amp;yptr) -&gt; * (yptr的地址) -&gt; 得到那个地址上的变量 -&gt; yptr<br>&amp;*yptr -&gt; &amp;(*yptr) -&gt; &amp;(y) -&gt; 得到y的地址，也就是yptr -&gt; yptr<br><span class="hljs-comment">//互相反作用</span><br></code></pre></td></tr></table></figure>
+
+<p>传入地址<br>int i;scanf(“%d”,i);为什么编译没有报错？<br>i的值和它的地址刚好都是整数，scanf看不出区别</p>
+<p>指针应用场景<br>一、交换两个变量的值<br>二、函数返回多个值，某些值就只能通过指针返回（传入的参数实际上是需要保存     带回的结果的变量）<br>三、函数返回运算的状态，结果通过指针返回<br>常见套路：<strong>让函数返回特殊的不属于有效范围内的值来表示出错</strong><br>（后续的语言（C++，Java）采用了异常机制来解决这个问题）</p>
+<p><strong>指针最常见的错误</strong><br><strong>定义了指针变量，还没有指向任何变量，就开始使用指针</strong></p>
+<p>传入函数的数组组成了什么？<br><strong>函数参数表中的数组实际上是指针</strong><br>sizeof(a)==sizeof(int*)<br>但是可以用数组的运算符[]进行运算</p>
+<p>数组参数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//以下四种函数原型是等价的:</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *ar,<span class="hljs-keyword">int</span> n)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *,<span class="hljs-keyword">int</span>)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ar[],<span class="hljs-keyword">int</span> n)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> [],<span class="hljs-keyword">int</span>)</span></span>;<br></code></pre></td></tr></table></figure>
+
+<p>数组变量是特殊的指针<br>数组变量本身表达地址，所以<br>int a[10];int *p=a;（无需用&amp;取地址）<br>但是数组的单元表达的是变量，需要用&amp;取地址<br>a == &amp;a[0]<br>[]运算符可以对数组做，也可以对指针做：<br>p[0] &lt;==&gt; a[0]   (p是指针，a是数组)<br>*运算符可以对指针做，也可以对数组做：<br>*a = 25;<br><strong>数组变量是const的指针，所以不能被赋值</strong><br>int b[] –&gt; int * const b;（数组变量是一个常量指针）</p>
+<p>指针是const：表示一旦得到了某个变量的地址，不能再指向其他变量<br>指针所指是const：表示不能通过这个指针去修改那个变量</p>
 
             </div>
             <hr>
