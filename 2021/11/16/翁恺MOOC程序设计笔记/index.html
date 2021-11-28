@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/.com//Blog/source/_posts/翁恺MOOC程序设计笔记/ascii.jpg">
 <meta property="article:published_time" content="2021-11-16T08:56:45.000Z">
-<meta property="article:modified_time" content="2021-11-28T08:05:47.632Z">
+<meta property="article:modified_time" content="2021-11-28T15:20:14.005Z">
 <meta property="article:author" content="Leafxiaotong">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      14k 字
+      15k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      43 分钟
+      46 分钟
     </span>
   
 
@@ -748,10 +748,21 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">date</span> &#123;</span><br>    <span class="hljs-keyword">int</span> month;<br>    <span class="hljs-keyword">int</span> day;<br>    <span class="hljs-keyword">int</span> year;<br>&#125;;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">date</span> <span class="hljs-title">today</span> =</span> &#123;<span class="hljs-number">07</span>,<span class="hljs-number">31</span>,<span class="hljs-number">2014</span>&#125;;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">date</span> <span class="hljs-title">thismonth</span> =</span> &#123;.month=<span class="hljs-number">7</span>,.year=<span class="hljs-number">2014</span>&#125;;<span class="hljs-comment">//没有给值的话默认为0</span><br></code></pre></td></tr></table></figure>
 <p>结构成员<br>结构和数组有点像<br>数组用[]运算符和下标访问其成员(例如a[0] = 10;）<br><strong>结构用.运算符和名字访问其成员</strong><br>today.day<br>student.firstName<br>p1.x<br>p1.y</p>
 <p>结构运算<br>要访问整个结构，直接用结构变量的名字<br>对于整个结构，可以做赋值，取地址，也可以传递给函数参数</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c">p1 = (struct point)&#123;<span class="hljs-number">5</span>,<span class="hljs-number">10</span>&#125;;  <span class="hljs-comment">//相当于p1.x = 5;p1.y = 10;</span><br>p1 = p2;  <span class="hljs-comment">// 相当于p1.x = p2.x;p1.y = p2.y;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c">p1 = (struct point)&#123;<span class="hljs-number">5</span>,<span class="hljs-number">10</span>&#125;;  <span class="hljs-comment">//相当于p1.x = 5;p1.y = 10;(对结构体变量赋值)</span><br>p1 = p2;  <span class="hljs-comment">// 相当于p1.x = p2.x;p1.y = p2.y;</span><br></code></pre></td></tr></table></figure>
 <p>结构指针<br>和数组不同，结构变量的名字并不是结构变量的地址，<strong>必须使用&amp;运算符</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">date</span> *<span class="hljs-title">pDate</span> =</span> &amp;today;<br></code></pre></td></tr></table></figure>
-<p>结构作为函数参数</p>
+<p>结构作为函数参数（<strong>与数组完全不一样！</strong>）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numberOfDays</span><span class="hljs-params">(struct date d)</span></span><br></code></pre></td></tr></table></figure>
+<p>整个结构可以作为参数的值传入函数<br>这时候是在函数内新建一个结构变量，并复制调用者的结构的值<br>也可以返回一个结构</p>
+<p>输入结构<br>没有直接的方式可以一次scanf一个结构<br>可以写一个函数来读入结构（<strong>函数调用时，传入函数的只是值！</strong>）<br>解决方案：在这个输入函数中，可以<strong>创建一个临时的结构变量</strong>，然后把这个结构返回给调用者</p>
+<p><strong>结构指针作为参数</strong>（重中之重！）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">date</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> month;<br>    <span class="hljs-keyword">int</span> day;<br>    <span class="hljs-keyword">int</span> year;<br>&#125;myday;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">date</span> *<span class="hljs-title">p</span> =</span> &amp;myday;<br>(*p).month = <span class="hljs-number">12</span>;<br>p-&gt;month = <span class="hljs-number">12</span>;<span class="hljs-comment">//用-&gt;表示指针所指的结构变量中的成员</span><br></code></pre></td></tr></table></figure>
+<p>结构数组</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">date</span> <span class="hljs-title">dates</span>[100];</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">date</span> <span class="hljs-title">dates</span>[]=</span><br>&#123;<br>    &#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2005</span>&#125;,&#123;<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2005</span>&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>结构中的结构</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dateAndTime</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">date</span> <span class="hljs-title">sdate</span>;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">time</span> <span class="hljs-title">stime</span>;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>嵌套的结构</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">point</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> x;<br>    <span class="hljs-keyword">int</span> y;<br>&#125;;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rectangle</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">point</span> <span class="hljs-title">pt1</span>;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">point</span> <span class="hljs-title">pt2</span>;</span><br>&#125;;<br>如果有变量<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rectangle</span> <span class="hljs-title">r</span>;</span><br>就可以有：<br>    r.pt1.x<br>    r.pt1.y<br>    r.pt2.x<br>    r.pt2.y<br>如果有变量定义：<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rectangle</span> <span class="hljs-title">r</span>,*<span class="hljs-title">rp</span>;</span><br>    rp = &amp;r;<br>那么下面的四种形式是等价的：<br>    r.pt1.x<br>    rp-&gt;pt1.x<br>    (r.pt1).x<br>    (rp-&gt;pt1).x<br>但是没有rp-&gt;pt1-&gt;x<span class="hljs-comment">//此处的pt1不是指针</span><br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
