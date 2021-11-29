@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/.com//Blog/source/_posts/翁恺MOOC程序设计笔记/ascii.jpg">
 <meta property="article:published_time" content="2021-11-16T08:56:45.000Z">
-<meta property="article:modified_time" content="2021-11-28T15:20:14.005Z">
+<meta property="article:modified_time" content="2021-11-29T08:19:01.515Z">
 <meta property="article:author" content="Leafxiaotong">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      15k 字
+      18k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      46 分钟
+      56 分钟
     </span>
   
 
@@ -763,6 +763,305 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">dateAndTime</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">date</span> <span class="hljs-title">sdate</span>;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">time</span> <span class="hljs-title">stime</span>;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>嵌套的结构</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">point</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> x;<br>    <span class="hljs-keyword">int</span> y;<br>&#125;;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rectangle</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">point</span> <span class="hljs-title">pt1</span>;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">point</span> <span class="hljs-title">pt2</span>;</span><br>&#125;;<br>如果有变量<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rectangle</span> <span class="hljs-title">r</span>;</span><br>就可以有：<br>    r.pt1.x<br>    r.pt1.y<br>    r.pt2.x<br>    r.pt2.y<br>如果有变量定义：<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rectangle</span> <span class="hljs-title">r</span>,*<span class="hljs-title">rp</span>;</span><br>    rp = &amp;r;<br>那么下面的四种形式是等价的：<br>    r.pt1.x<br>    rp-&gt;pt1.x<br>    (r.pt1).x<br>    (rp-&gt;pt1).x<br>但是没有rp-&gt;pt1-&gt;x<span class="hljs-comment">//此处的pt1不是指针</span><br></code></pre></td></tr></table></figure>
+<h1 id="Day8"><a href="#Day8" class="headerlink" title="Day8"></a>Day8</h1><hr>
+<p>自定义数据类型（typedef）<br>C语言提供了一个叫做typedef的功能来声明一个已有的数据类型的新名字</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> Length;<br><span class="hljs-comment">//使得Lengrh成为int类型的别名</span><br><span class="hljs-comment">//Length这个名字就可以代替int出现在变量定义和参数声明的地方了</span><br>Length a,b,len;<br>Length numbers[<span class="hljs-number">10</span>];<br></code></pre></td></tr></table></figure>
+<p>typedef<br>声明新的类型的名字<br><strong>新的名字是某种类型的别名</strong><br><strong>改善了程序的可读性</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int64_t</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ADate</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> month;<br>    <span class="hljs-keyword">int</span> day;<br>    <span class="hljs-keyword">int</span> year;<br>&#125;Date;<span class="hljs-comment">//简化了的名字</span><br><span class="hljs-keyword">int64_t</span> i = <span class="hljs-number">100000000000000</span>;<br>Date d = &#123;<span class="hljs-number">9</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2005</span>&#125;;<br></code></pre></td></tr></table></figure>
+<hr>
+<p><strong>联合</strong>（虽然有两个数据成员，但是这两个成员的存储空间是一样的）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">AnElt4</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> i;<br>    <span class="hljs-keyword">char</span> c;<br>&#125;elt1,elt2;<br></code></pre></td></tr></table></figure>
+<p>union的用处<br>读出寄存器数据（这个不在这篇文章的讨论范围内）<br>将读出的数据转换成可计算的数据类型（两个char类型转换成一个short或int或float类型）<br>根据公式计算</p>
+<hr>
+<p><strong>全局变量</strong><br>定义在函数外面的变量是全局变量<br>全局变量具有全局的生存期和作用域<br>它们与任何函数都无关<br>在任何函数内部都可以使用它们</p>
+<p>全局变量初始化<br><strong>没有做初始化的全局变量会得到0值</strong>（本地变量则是得到一堆奇奇怪怪的值）<br><strong>指针会得到NULL值</strong><br>只能用编译时刻已知的值来初始化全局变量<br>它们的初始化发生在main函数之前</p>
+<p>被隐藏的全局变量<br>如果函数内部存在与全局变量同名的变量，则<strong>全局变量被隐藏</strong></p>
+<p>静态本地变量<br>在本地变量定义时加上<strong>static</strong>修饰符就成为静态本地变量<br>当函数离开的时候，静态本地变量会继续存在并保持其值<br>静态本地变量的初始化只会在第一次进入这个函数时做，<strong>以后进去函数时会保持上次离开时的值</strong></p>
+<p>静态本地变量<strong>实际上是特殊的全局变量</strong><br>它们位于相同内存区域<br><strong>静态本地变量具有全局的生存期，函数内的局部作用域</strong><br>static在这里的意思是局部作用域（本地可访问）</p>
+<p><strong>*返回指针的函数</strong><br>返回本地变量的地址是危险的<br>返回全局变量或静态本地变量的地址是安全的<br>返回在函数内malloc的内存是安全的，但是容易造成问题<br><strong>最好的做法是返回传入的指针！</strong></p>
+<p>全局变量使用小tips<br><strong>不要使用全局变量来在函数间传递参数和结果</strong><br>尽量避免使用全局变量<br>*使用全局变量和静态本地变量的函数是线程不安全的</p>
+<hr>
+<p>编译预处理指令</p>
+<h1 id="开头的是编译预处理指令"><a href="#开头的是编译预处理指令" class="headerlink" title="开头的是编译预处理指令"></a>开头的是编译预处理指令</h1><p>它们不是C语言的成分，但是C语言程序离不开它们<br><strong>#define用来定义一个宏</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> <span class="hljs-meta-string">&lt;名字&gt;</span> <span class="hljs-meta-string">&lt;值&gt;</span></span><br><span class="hljs-comment">//注意没有结尾的分号，因为不是C的语句</span><br><span class="hljs-comment">//名字必须是一个单词，值可以是各种东西</span><br></code></pre></td></tr></table></figure>
+<p>在C语言的编译器开始编译之前，编译预处理程序（cpp）会把程序中的名字换成值<br><strong>完全的文本替换</strong></p>
+<p><strong>宏（同样不是C语言的部分，不能带分号！）</strong><br>如果一个宏的值中有其他的宏的名字，也是会被替换的<br>如果一个宏的值超过一行，<strong>最后一行之前的行末需要加\</strong><br>宏的值后面出现的注释不会被当作宏的值的一部分</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PRT printf(<span class="hljs-meta-string">&quot;%df&quot;</span>,PI);\</span><br><span class="hljs-meta">            printf(<span class="hljs-meta-string">&quot;%f\n&quot;</span>,PI2);</span><br></code></pre></td></tr></table></figure>
+<p><strong>没有值的宏</strong></p>
+<h1 id="define-DEBUG"><a href="#define-DEBUG" class="headerlink" title="define _DEBUG"></a>define _DEBUG</h1><p>这类宏是用于条件编译的，后面有其他的编译预处理指令来检查这个宏是否被定义过了</p>
+<p><strong>预定义的宏</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">_LINE_;_FILE_;_DATE_;_TIME_;_STDC_<br></code></pre></td></tr></table></figure>
+<p><strong>像函数的宏</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> cube(x) ((x)*(x)*(x))</span><br></code></pre></td></tr></table></figure>
+<p><strong>错误定义的宏</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RADTODEG(x) (x*57.29578)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RADTODEG(x) (x)*57.29578<span class="hljs-comment">//错误的运算！</span></span><br></code></pre></td></tr></table></figure>
+<p>一切都要带括号<br>整个值要括号<br>参数出现的每个地方都要括号</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-id">#define</span> <span class="hljs-selector-tag">RADTODEG</span>(x) ((x)*<span class="hljs-number">57.29578</span>)<br></code></pre></td></tr></table></figure>
+<p><strong>带参数的宏</strong><br>可以带多个参数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MIN(a,b) ((a)&gt;(b)?(b):(a))</span><br></code></pre></td></tr></table></figure>
+<p>也可以组合（嵌套）使用替他宏</p>
+<p><em>在大型程序的代码中使用非常普遍<br>可以非常复杂，如“产生”函数<br>在#和##这两个运算符的帮助下<br><em>*部分宏会被inline函数替代</em></em></p>
+<p>其他编译预处理指令：条件编译，error。。。</p>
+<hr>
+<p>多个.c文件<br>main（）里的代码太长了，适合分成几个函数<br>一个源代码文件太长了，适合分成几个文件<br><strong>两个独立的源代码文件不能编译形成可执行的程序</strong></p>
+<p><strong>头文件</strong><br>把函数原型放到一个头文件（以.h结尾）中，在需要调用这个函数的源代码文件（.c文件）中#include这个头文件，就能让编译器在编译的时候知道函数的原型</p>
+<p><strong>#include</strong><br>编译预处理指令，和宏一样，在编译之前就处理了<br>它把那个文件的全部文本内容原封不动地插入到它所在的地方<br><strong>所以也不是一定要在.c文件的最前面#include</strong></p>
+<p><strong>“”还是&lt;&gt;?</strong></p>
+<h1 id="include有两种形式来指出要插入的文件"><a href="#include有两种形式来指出要插入的文件" class="headerlink" title="include有两种形式来指出要插入的文件"></a>include有两种形式来指出要插入的文件</h1><p><strong>“”要求编译器首先在当前目录（.c文件所在的目录）寻找这个文件，如果没有，到编译器指定的目录去找</strong><br>&lt;&gt;让编译器只在指定的目录去找<br>编译器自己知道自己的标准库的头文件在哪里<br>环境变量和编译器命令行参数也可以指定寻找头文件的目录</p>
+<p><strong>#include的误区</strong></p>
+<h1 id="include不是用来引入库的"><a href="#include不是用来引入库的" class="headerlink" title="include不是用来引入库的"></a>include不是用来引入库的</h1><p>stdio.h里只有printf的原型，printf的代码在另外的地方，某个.lib(Windows)或a(Unix)中<br>现在的C语言编译器默认会有引入所有的标准库</p>
+<h1 id="include只是为了让编译器知道printf函数的原型，保证调用时给出的参数值是正确的类型"><a href="#include只是为了让编译器知道printf函数的原型，保证调用时给出的参数值是正确的类型" class="headerlink" title="include只是为了让编译器知道printf函数的原型，保证调用时给出的参数值是正确的类型"></a>include<stdio.h>只是为了让编译器知道printf函数的原型，保证调用时给出的参数值是正确的类型</stdio.h></h1><p><strong>不对外公开的函数</strong><br>在函数前面加上static就使得它成为只能在所在的编译单元中被使用的函数<br>在全局变量前面加上static就使得它成为只能在所在的编译单元中被使用的全局变量</p>
+<hr>
+<p><strong>声明</strong> </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">int</span> i;<span class="hljs-comment">//是变量的定义</span><br><span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> i;<span class="hljs-comment">//是变量的声明</span><br></code></pre></td></tr></table></figure>
+<p>声明和定义<br><strong>声明是不产生代码的东西</strong><br><strong>定义是产生代码的东西</strong></p>
+<p><strong>标志头文件结构</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> __LIST_HEAD__</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __LIST_HEAF__</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;node.h&quot;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> _<span class="hljs-title">list</span></span><br><span class="hljs-class">&#123;</span><br>    Node* head;<br>    Node* tail;<br>&#125;List;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
+<p>运用条件编译和宏，保证这个头文件在一个编译单元中只会被#include一次<br>$pragma once也能起到相同的作用，但是不是所有的编译器都支持</p>
+<hr>
+<p>格式化的输入输出</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span><br>%[flags][width][.prec][hlL]type<br></code></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>左对齐</td>
+</tr>
+<tr>
+<td>+</td>
+<td>在前面放+或-</td>
+</tr>
+<tr>
+<td>(space)</td>
+<td>正数留空</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0填充</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>width或prec</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td>最小字符数</td>
+</tr>
+<tr>
+<td>*</td>
+<td>下一个参数是字符数</td>
+</tr>
+<tr>
+<td>.number</td>
+<td>小数点后的位数</td>
+</tr>
+<tr>
+<td>.*</td>
+<td>下一个参数是小数点后的位数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%*d\n&quot;</span>,<span class="hljs-number">6</span>,<span class="hljs-number">123</span>);<br></code></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>hlL(类型修饰)</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hh</td>
+<td>单个字节</td>
+</tr>
+<tr>
+<td>h</td>
+<td>short</td>
+</tr>
+<tr>
+<td>l</td>
+<td>long</td>
+</tr>
+<tr>
+<td>ll</td>
+<td>long long</td>
+</tr>
+<tr>
+<td>L</td>
+<td>long double</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>用于</th>
+<th>typr</th>
+<th>用于</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i或d</td>
+<td>int</td>
+<td>g</td>
+<td>float</td>
+</tr>
+<tr>
+<td>u</td>
+<td>unsigned int</td>
+<td>G</td>
+<td>float</td>
+</tr>
+<tr>
+<td>o</td>
+<td>八进制</td>
+<td>a或A</td>
+<td>十六进制浮点</td>
+</tr>
+<tr>
+<td>x</td>
+<td>十六进制</td>
+<td>c</td>
+<td>char</td>
+</tr>
+<tr>
+<td>X</td>
+<td>字母大写的十六进制</td>
+<td>s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>f或F</td>
+<td>float,6</td>
+<td>p</td>
+<td>指针</td>
+</tr>
+<tr>
+<td>e或E</td>
+<td>指数</td>
+<td>n</td>
+<td>读入/写出的个数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">scanf</span><br>%[flag]type<br></code></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>flag</th>
+<th>含义</th>
+<th>flag</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>跳过</td>
+<td>l</td>
+<td>long,double</td>
+</tr>
+<tr>
+<td>数字</td>
+<td>最大字符数</td>
+<td>ll</td>
+<td>long long</td>
+</tr>
+<tr>
+<td>hh</td>
+<td>char</td>
+<td>L</td>
+<td>long double</td>
+</tr>
+<tr>
+<td>h</td>
+<td>short</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>用于</th>
+<th>type</th>
+<th>用于</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d</td>
+<td>int</td>
+<td>s</td>
+<td>字符串（单词）</td>
+</tr>
+<tr>
+<td>i</td>
+<td>整数，可能为十六进制或八进制</td>
+<td>[…]</td>
+<td>所允许的字符</td>
+</tr>
+<tr>
+<td>u</td>
+<td>unsigned int</td>
+<td>p</td>
+<td>指针</td>
+</tr>
+<tr>
+<td>o</td>
+<td>八进制</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>x</td>
+<td>十六进制</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>a,e,f,g</td>
+<td>float</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>c</td>
+<td>char</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>printf和scanf的返回值</strong><br>读入的项目数<br>输出的字符数<br>在要求严格的程序中，应该<strong>判断每次调用scanf或printf的返回值</strong>，从而了解程序运行中是否存在问题</p>
+<hr>
+<p>二进制文件<br>其实所有的文件最终都是二进制的<br>文本文件无非就是最简单的方式可以读写的文件</p>
 
             </div>
             <hr>
