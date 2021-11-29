@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/.com//Blog/source/_posts/翁恺MOOC程序设计笔记/ascii.jpg">
 <meta property="article:published_time" content="2021-11-16T08:56:45.000Z">
-<meta property="article:modified_time" content="2021-11-29T09:00:37.643Z">
+<meta property="article:modified_time" content="2021-11-29T09:07:29.431Z">
 <meta property="article:author" content="Leafxiaotong">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
@@ -782,14 +782,15 @@
 <p><strong>*返回指针的函数</strong><br>返回本地变量的地址是危险的<br>返回全局变量或静态本地变量的地址是安全的<br>返回在函数内malloc的内存是安全的，但是容易造成问题<br><strong>最好的做法是返回传入的指针！</strong></p>
 <p>全局变量使用小tips<br><strong>不要使用全局变量来在函数间传递参数和结果</strong><br>尽量避免使用全局变量<br>*使用全局变量和静态本地变量的函数是线程不安全的</p>
 <hr>
-<p>编译预处理指令</p>
-<h1 id="开头的是编译预处理指令"><a href="#开头的是编译预处理指令" class="headerlink" title="开头的是编译预处理指令"></a>开头的是编译预处理指令</h1><p>它们不是C语言的成分，但是C语言程序离不开它们<br><strong>#define用来定义一个宏</strong></p>
+<p>编译预处理指令<br>开头的是编译预处理指令<br>它们不是C语言的成分，但是C语言程序离不开它们</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span>用来定义一个宏</span><br></code></pre></td></tr></table></figure>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> <span class="hljs-meta-string">&lt;名字&gt;</span> <span class="hljs-meta-string">&lt;值&gt;</span></span><br><span class="hljs-comment">//注意没有结尾的分号，因为不是C的语句</span><br><span class="hljs-comment">//名字必须是一个单词，值可以是各种东西</span><br></code></pre></td></tr></table></figure>
 <p>在C语言的编译器开始编译之前，编译预处理程序（cpp）会把程序中的名字换成值<br><strong>完全的文本替换</strong></p>
 <p><strong>宏（同样不是C语言的部分，不能带分号！）</strong><br>如果一个宏的值中有其他的宏的名字，也是会被替换的<br>如果一个宏的值超过一行，<strong>最后一行之前的行末需要加\</strong><br>宏的值后面出现的注释不会被当作宏的值的一部分</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PRT printf(<span class="hljs-meta-string">&quot;%df&quot;</span>,PI);\</span><br><span class="hljs-meta">            printf(<span class="hljs-meta-string">&quot;%f\n&quot;</span>,PI2);</span><br></code></pre></td></tr></table></figure>
 <p><strong>没有值的宏</strong></p>
-<h1 id="define-DEBUG"><a href="#define-DEBUG" class="headerlink" title="define _DEBUG"></a>define _DEBUG</h1><p>这类宏是用于条件编译的，后面有其他的编译预处理指令来检查这个宏是否被定义过了</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _DEBUG</span><br></code></pre></td></tr></table></figure>
+<p>这类宏是用于条件编译的，后面有其他的编译预处理指令来检查这个宏是否被定义过了</p>
 <p><strong>预定义的宏</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">_LINE_;_FILE_;_DATE_;_TIME_;_STDC_<br></code></pre></td></tr></table></figure>
 <p><strong>像函数的宏</strong></p>
@@ -807,11 +808,9 @@
 <p>多个.c文件<br>main（）里的代码太长了，适合分成几个函数<br>一个源代码文件太长了，适合分成几个文件<br><strong>两个独立的源代码文件不能编译形成可执行的程序</strong></p>
 <p><strong>头文件</strong><br>把函数原型放到一个头文件（以.h结尾）中，在需要调用这个函数的源代码文件（.c文件）中#include这个头文件，就能让编译器在编译的时候知道函数的原型</p>
 <p><strong>#include</strong><br>编译预处理指令，和宏一样，在编译之前就处理了<br>它把那个文件的全部文本内容原封不动地插入到它所在的地方<br><strong>所以也不是一定要在.c文件的最前面#include</strong></p>
-<p><strong>“”还是&lt;&gt;?</strong></p>
-<h1 id="include有两种形式来指出要插入的文件"><a href="#include有两种形式来指出要插入的文件" class="headerlink" title="include有两种形式来指出要插入的文件"></a>include有两种形式来指出要插入的文件</h1><p><strong>“”要求编译器首先在当前目录（.c文件所在的目录）寻找这个文件，如果没有，到编译器指定的目录去找</strong><br>&lt;&gt;让编译器只在指定的目录去找<br>编译器自己知道自己的标准库的头文件在哪里<br>环境变量和编译器命令行参数也可以指定寻找头文件的目录</p>
-<p><strong>#include的误区</strong></p>
-<h1 id="include不是用来引入库的"><a href="#include不是用来引入库的" class="headerlink" title="include不是用来引入库的"></a>include不是用来引入库的</h1><p>stdio.h里只有printf的原型，printf的代码在另外的地方，某个.lib(Windows)或a(Unix)中<br>现在的C语言编译器默认会有引入所有的标准库</p>
-<h1 id="include只是为了让编译器知道printf函数的原型，保证调用时给出的参数值是正确的类型"><a href="#include只是为了让编译器知道printf函数的原型，保证调用时给出的参数值是正确的类型" class="headerlink" title="include只是为了让编译器知道printf函数的原型，保证调用时给出的参数值是正确的类型"></a>include<stdio.h>只是为了让编译器知道printf函数的原型，保证调用时给出的参数值是正确的类型</stdio.h></h1><p><strong>不对外公开的函数</strong><br>在函数前面加上static就使得它成为只能在所在的编译单元中被使用的函数<br>在全局变量前面加上static就使得它成为只能在所在的编译单元中被使用的全局变量</p>
+<p><strong>“”还是&lt;&gt;?</strong><br>include有两种形式来指出要插入的文件<br><strong>“”要求编译器首先在当前目录（.c文件所在的目录）寻找这个文件，如果没有，到编译器指定的目录去找</strong><br>&lt;&gt;让编译器只在指定的目录去找<br>编译器自己知道自己的标准库的头文件在哪里<br>环境变量和编译器命令行参数也可以指定寻找头文件的目录</p>
+<p><strong>include的误区</strong><br>include不是用来引入库的<br>stdio.h里只有printf的原型，printf的代码在另外的地方，某个.lib(Windows)或a(Unix)中<br>现在的C语言编译器默认会有引入所有的标准库<br>include<stdio.h>只是为了让编译器知道printf函数的原型，保证调用时给出的参数值是正确的类型</stdio.h></p>
+<p><strong>不对外公开的函数</strong><br>在函数前面加上static就使得它成为只能在所在的编译单元中被使用的函数<br>在全局变量前面加上static就使得它成为只能在所在的编译单元中被使用的全局变量</p>
 <hr>
 <p><strong>声明</strong> </p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">int</span> i;<span class="hljs-comment">//是变量的定义</span><br><span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> i;<span class="hljs-comment">//是变量的声明</span><br></code></pre></td></tr></table></figure>
